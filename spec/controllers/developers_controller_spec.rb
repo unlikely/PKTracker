@@ -21,4 +21,12 @@ describe DevelopersController do
       response.should be_success
     end
   end
+
+  describe 'update' do
+    it 'redirects to show' do
+      ev = Factory :developer, name: 'usar'
+      put :update, id: ev.to_param
+      response.should redirect_to developer_path(ev.id)
+    end
+  end
 end

@@ -9,11 +9,13 @@ POINTS:
   = @developer.points_accepted
 TIME SINCE LAST QUESTION:
 %p
-  = @developer.last_question
+  = ((Time.now - @developer.last_question)/1.hour).round(3)
+  hours
 TIME SINCE BROKE PRODUCTION:
 %p
-  = @developer.last_broke_production
+  = ((Time.now - @developer.last_broke_production)/1.day).round(0)
+  days
 
-
+= link_to 'edit', edit_developer_path(@developer)
 
 = link_to 'BACK OF INDEX!!', developers_path

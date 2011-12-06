@@ -1,4 +1,6 @@
 class DevelopersController < ApplicationController
+  respond_to :html, :json
+
   def index
     @developer = Developer.all
   end
@@ -18,5 +20,15 @@ class DevelopersController < ApplicationController
 
   def show
     @developer = Developer.find params[:id]
+  end
+
+  def edit
+    @developer = Developer.find params[:id]
+  end
+
+  def update
+    @developer = Developer.find params[:id]
+    @developer.update_attributes params[:developer]
+    respond_with @developer, action: 'show'
   end
 end

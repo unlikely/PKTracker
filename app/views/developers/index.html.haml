@@ -10,7 +10,11 @@
     = x.points_accepted
   TIME SINCE LAST QUESTION:
   %p
-    = x.last_question
+    = ((Time.now - x.last_question)/1.hour).round(3)
+    hours
   TIME SINCE BROKE PRODUCTION:
   %p
-    = x.last_broke_production
+    = ((Time.now - x.last_broke_production)/1.day).round(0)
+    days
+  %p
+    = link_to 'edit', edit_developer_path(x)

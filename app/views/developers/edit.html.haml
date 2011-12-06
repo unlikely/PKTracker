@@ -1,0 +1,24 @@
+%h3
+  hi
+
+place for of make new dev to track is go here.
+
+= form_for @developer do |f|
+  %p
+    = f.label "NAME GO HERE"
+    = f.text_field :name
+
+  %p
+    = f.label "POINTS ACCEPTED"
+    = f.text_field :points_accepted, size: 12
+
+  %p
+    = f.label "last question asked at?"
+    = f.datetime_select :last_question
+
+  %p
+    = f.label 'DATE LAST BROKE PRODUCTION'
+    = f.date_select :last_broke_production
+
+  %p
+    = submit_tag "MAKE GO!!!"
