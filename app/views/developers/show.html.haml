@@ -1,0 +1,19 @@
+%h1 HI THERE
+%h2 this is dev stats:
+
+NAME:
+%p
+  = @developer.name
+POINTS:
+%p
+  = @developer.points_accepted
+TIME SINCE LAST QUESTION:
+%p
+  = @developer.last_question
+TIME SINCE BROKE PRODUCTION:
+%p
+  = @developer.last_broke_production
+
+
+
+= link_to 'BACK OF INDEX!!', developers_path

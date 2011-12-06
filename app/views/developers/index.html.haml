@@ -1,6 +1,16 @@
-.workspace
-  %h3 test of space
-  $h2 IS WORK
+%h3 test of space
+%h2 IS WORK
 
-  - @developer.each do |x|
-    = x.name link_to(x, developer(x))
+- @developer.each do |x|
+  NAME:
+  %p
+    = link_to x.name, developer_path(x)
+  POINTS:
+  %p
+    = x.points_accepted
+  TIME SINCE LAST QUESTION:
+  %p
+    = x.last_question
+  TIME SINCE BROKE PRODUCTION:
+  %p
+    = x.last_broke_production
