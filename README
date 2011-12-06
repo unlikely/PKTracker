@@ -1,0 +1,5 @@
+=== PKTracker
+
+simple developer stats tracker in Rails.
+
+eventual goal is for it to be extensible, but for now stats tracked are hardcoded.
