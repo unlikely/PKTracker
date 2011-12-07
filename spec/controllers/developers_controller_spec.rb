@@ -29,4 +29,12 @@ describe DevelopersController do
       response.should redirect_to developer_path(ev.id)
     end
   end
+
+  describe 'destroy' do
+    it 'redirects to index' do
+      ev = Factory :developer, name: 'usar'
+      delete :destroy, id: ev.to_param
+      response.should redirect_to developers_path
+    end
+  end
 end

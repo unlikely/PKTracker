@@ -35,4 +35,10 @@ class DevelopersController < ApplicationController
       render action: 'edit'
     end
   end
+
+  def destroy
+    dev = Developer.find params[:id]
+    dev.destroy
+    redirect_to developers_path
+  end
 end
