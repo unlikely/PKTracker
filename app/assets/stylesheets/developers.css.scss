@@ -1,3 +1,57 @@
 // Place all the styles related to the Developers controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+// .field_with_errors – Style for the form fields and labels with errors.
+// #errorExplanation – Style for the div element with the error messages.
+// #errorExplanation h2 – Style for the header of the div element.
+// #errorExplanation p – Style for the paragraph that holds the message that appears right below the header of the div element.
+// #errorExplanation ul li – Style for the list items with individual error messages.
+
+.field_with_errors {
+  border-width: 2px;
+  border-style: solid;
+  border-color: #f00;
+}
+
+#errorExplanation {
+  padding: 7px;
+  border-width: 4px;
+  border-style: solid;
+  border-color: #a3a;
+  color: red;
+}
+
+#errorExplanation h2 {
+  color: black;
+  font-size: 44px;
+  font-weight: bold;
+  font-family: sans-serif;
+}
+
+.data {
+  text-align: center;
+  margin: 0 auto;
+  padding: 12px;
+  background-color: #afa;
+  width: 120px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+}
+
+.developer-box {
+  background-color: #dff;
+  text-align: center;
+  display: inline-block;
+  padding: 4px;
+  margin: 8px;
+  border-width: 3px;
+  border-style: solid;
+  border-color: #aaa;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+  -moz-box-shadow: 0px 0px 6px #000;
+  -webkit-box-shadow: 0px 0px 6px #000;
+  box-shadow: 0px 0px 6px #000;
+
+}

@@ -5,19 +5,24 @@
   = link_to 'MAKE NEW OF DEVELOPER', new_developer_path
 
 - @developer.each do |x|
-  NAME:
-  %p
-    = link_to x.name, developer_path(x)
-  POINTS:
-  %p
-    = x.points_accepted
-  TIME SINCE LAST QUESTION:
-  %p
-    = ((Time.now - x.last_question)/1.hour).round(3)
-    hours
-  TIME SINCE BROKE PRODUCTION:
-  %p
-    = ((Time.now - x.last_broke_production)/1.day).round(0)
-    days
-  %p
-    = link_to 'edit', edit_developer_path(x)
+  .developer-box
+    NAME:
+    %p
+      .data
+        = link_to x.name, developer_path(x)
+    POINTS:
+    %p
+      .data
+        = x.points_accepted
+    TIME SINCE LAST QUESTION:
+    %p
+      .data
+        = ((Time.now - x.last_question)/1.hour).round(3)
+        hours
+    TIME SINCE BROKE PRODUCTION:
+    %p
+      .data
+        = ((Time.now - x.last_broke_production)/1.day).round(0)
+        days
+    %p
+      = link_to 'edit', edit_developer_path(x)

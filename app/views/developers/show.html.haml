@@ -1,21 +1,26 @@
-%h1 HI THERE
-%h2 this is dev stats:
+.developer-box
+  %h1 HI THERE
+  %h2 this is dev stats:
 
-NAME:
-%p
-  = @developer.name
-POINTS:
-%p
-  = @developer.points_accepted
-TIME SINCE LAST QUESTION:
-%p
-  = ((Time.now - @developer.last_question)/1.hour).round(3)
-  hours
-TIME SINCE BROKE PRODUCTION:
-%p
-  = ((Time.now - @developer.last_broke_production)/1.day).round(0)
-  days
+  NAME:
+  %p
+    .data
+      = @developer.name
+  POINTS:
+  %p
+    .data
+      = @developer.points_accepted
+  TIME SINCE LAST QUESTION:
+  %p
+    .data
+      = ((Time.now - @developer.last_question)/1.hour).round(3)
+      hours
+  TIME SINCE BROKE PRODUCTION:
+  %p
+    .data
+      = ((Time.now - @developer.last_broke_production)/1.day).round(0)
+      days
 
-= link_to 'edit', edit_developer_path(@developer)
+  = link_to 'edit', edit_developer_path(@developer)
 
-= link_to 'BACK OF INDEX!!', developers_path
+  = link_to 'BACK OF INDEX!!', developers_path
