@@ -7,19 +7,19 @@
   = form_for @developer do |f|
     = f.error_messages
     %p
-      = f.label "NAME GO HERE"
+      = f.label :name
       = f.text_field :name
 
     %p
-      = f.label "POINTS ACCEPTED"
+      = f.label :points
       = f.text_field :points_accepted, size: 12
 
     %p
-      = f.label "last question asked at?"
+      = f.label :last_question
       = f.datetime_select :last_question
 
     %p
-      = f.label 'DATE LAST BROKE PRODUCTION'
+      = f.label :last_broke_production
       = f.date_select :last_broke_production
 
     %p

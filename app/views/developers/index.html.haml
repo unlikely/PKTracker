@@ -5,23 +5,23 @@
 
 - @developer.each do |x|
   .developer-box
-    NAME:
+    = t :name
     %p
       .data
         = link_to x.name, developer_path(x)
-    POINTS:
+    = t :points
     %p
       .data
         = x.points_accepted
-    TIME SINCE LAST QUESTION:
+    = t :last_question
     %p
       .data
-        = ((Time.now - x.last_question)/1.hour).round(3)
+        = x.time_since_question(Time.now)
         hours
-    TIME SINCE BROKE PRODUCTION:
+    = t :last_broke_production
     %p
       .data
-        = ((Time.now - x.last_broke_production)/1.day).round(0)
+        = x.time_since_broke_production(Time.now)
         days
     %p
       = link_to 'edit', edit_developer_path(x)

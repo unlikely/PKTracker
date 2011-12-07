@@ -13,12 +13,12 @@
   TIME SINCE LAST QUESTION:
   %p
     .data
-      = ((Time.now - @developer.last_question)/1.hour).round(3)
+      = @developer.time_since_question(Time.now)
       hours
   TIME SINCE BROKE PRODUCTION:
   %p
     .data
-      = ((Time.now - @developer.last_broke_production)/1.day).round(0)
+      = @developer.time_since_broke_production(Time.now)
       days
 
   = link_to 'edit', edit_developer_path(@developer)

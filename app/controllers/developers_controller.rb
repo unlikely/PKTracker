@@ -20,6 +20,7 @@ class DevelopersController < ApplicationController
 
   def show
     @developer = Developer.find params[:id]
+    respond_with @developer
   end
 
   def edit

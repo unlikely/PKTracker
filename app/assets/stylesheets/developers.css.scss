@@ -9,6 +9,8 @@
 // #errorExplanation ul li – Style for the list items with individual error messages.
 
 .field_with_errors {
+  display: inline;
+  padding: 8px;
   border-width: 2px;
   border-style: solid;
   border-color: #f00;
