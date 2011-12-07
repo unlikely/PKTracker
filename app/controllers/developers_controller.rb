@@ -12,7 +12,7 @@ class DevelopersController < ApplicationController
   def create
     @developer = Developer.new(params[:developer])
     if @developer.save
-      redirect_to developer_path
+      redirect_to developer_path(@developer)
     else
       render action: 'new'
     end
@@ -29,6 +29,10 @@ class DevelopersController < ApplicationController
   def update
     @developer = Developer.find params[:id]
     @developer.update_attributes params[:developer]
-    respond_with @developer, action: 'show'
+    if @developer.save
+      redirect_to developer_path(@developer)
+    else
+      render action: 'edit'
+    end
   end
 end
