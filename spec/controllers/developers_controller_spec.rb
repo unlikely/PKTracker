@@ -37,7 +37,7 @@ describe DevelopersController do
   describe 'update' do
     it 'works' do
       ev = Factory :developer, name: 'usar', points_accepted: 3
-      put :update, id: ev.to_param, developer: { name: 'user', points_accepted: 12 }
+      put :update, id: ev.to_param, developer: { name: 'user', points_accepted: 12, last_question: '2011-12-5 19:45:00 -0500' }
       ev.reload
       ev.name.should == 'user'
       ev.points_accepted.should == 12

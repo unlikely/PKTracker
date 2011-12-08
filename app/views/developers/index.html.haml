@@ -1,4 +1,3 @@
-
 %p
   .new-dev-offer
     = link_to 'MAKE NEW OF DEVELOPER', new_developer_path
@@ -16,12 +15,12 @@
     = t :last_question
     %p
       .data
-        = x.time_since_question(Time.now)
+        = x.time_since_question
         hours
     = t :last_broke_production
     %p
       .data
-        = x.time_since_broke_production(Time.now)
+        = x.time_since_broke_production
         days
     %p
       = link_to 'edit', edit_developer_path(x)
