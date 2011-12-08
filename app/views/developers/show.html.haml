@@ -2,20 +2,20 @@
   %h1 HI THERE
   %h2 this is dev stats:
 
-  NAME:
+  = t :name
   %p
     .data
       = @developer.name
-  POINTS:
+  = t :points
   %p
     .data
       = @developer.points_accepted
-  TIME SINCE LAST QUESTION:
+  = t :last_question
   %p
     .data
       = @developer.time_since_question(Time.now)
       hours
-  TIME SINCE BROKE PRODUCTION:
+  = t :last_broke_production
   %p
     .data
       = @developer.time_since_broke_production(Time.now)
