@@ -61,3 +61,11 @@ task :set_env do
   }
 
 end
+
+set :rds_cfg, {
+  :host => "flipstone.ctf5dd2ocka6.us-east-1.rds.amazonaws.com",
+  :master_user => "flipstone",
+  :master_pwd => "flipstone",
+  :port => "3306"
+}
+

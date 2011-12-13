@@ -31,17 +31,21 @@ gem 'flipstone-deployment', git: 'git://github.com/flipstone/flipstone-deploymen
 
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
-gem "rspec-rails"
 
 group :test, :development do
   gem 'simplecov'
   gem 'webrat'
   gem "factory_girl"
   gem "factory_girl_rails"
+  gem "rspec-rails"
 end
 
 group :test do
   gem 'fakeweb'
   # Pretty printed test output
   gem 'turn', '0.8.2', :require => false
+end
+
+group :production do
+  gem 'mysql', '2.8.1'
 end
