@@ -12,7 +12,7 @@ set :noalert_events, []
 # set :rails_env, 'development'
 set :instance, "localhost"
 set :branch, "master"
-set :deployment_safeword, "oingoboingo"
+set :deployment_safeword, "insanitysauce"
 
 #
 # environment settings (by task)
