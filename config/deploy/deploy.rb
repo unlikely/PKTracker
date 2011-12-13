@@ -25,6 +25,8 @@ task :production do
   set :instance, "pktracker.flipstone.com"
   set :unicorn_port, 15099
   set :nginx_cfg, {
+    ht_user: 'trackthing',
+    ht_passwd: 'trackme',
     port: 80
   }
   set_env
