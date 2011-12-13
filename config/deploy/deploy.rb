@@ -2,6 +2,7 @@
 # Flipstone deployment recipes
 #
 require "flipstone-deployment/capistrano/rails"
+load "deploy/assets"
 
 set :noalert_events, []
 
