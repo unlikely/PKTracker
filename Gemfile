@@ -23,10 +23,11 @@ gem 'jquery-rails'
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
 # Use unicorn as the web server
-# gem 'unicorn'
+gem 'unicorn'
 
 # Deploy with Capistrano
-# gem 'capistrano'
+gem 'capistrano', '~> 2.5'
+gem 'flipstone-deployment', git: 'git://github.com/flipstone/flipstone-deployment.git', branch: 'ccc7a75'
 
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
