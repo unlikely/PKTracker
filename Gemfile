@@ -5,7 +5,7 @@ gem 'rails', '3.1.3'
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
+
 gem 'haml', '~> 3.0'
 gem 'dynamic_form'
 
@@ -33,6 +33,7 @@ gem 'flipstone-deployment', git: 'git://github.com/flipstone/flipstone-deploymen
 # gem 'ruby-debug19', :require => 'ruby-debug'
 
 group :test, :development do
+  gem 'sqlite3'
   gem 'simplecov'
   gem 'webrat'
   gem "factory_girl"
