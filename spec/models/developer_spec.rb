@@ -31,4 +31,12 @@ describe Developer do
       ev.time_since_broke_production(compare).should == 0
     end
   end
+
+  describe 'converted to JSON' do
+    it 'includes the desired attributes when converted to JSON' do
+      ev = Factory :developer
+      ev.to_json.should match /time_since_question/
+      ev.to_json.should match /time_since_broke_production/
+    end
+  end
 end

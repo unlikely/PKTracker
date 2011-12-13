@@ -1,4 +1,4 @@
-.developer-box
+.developer-box[@developer]
   %h1 HI THERE
   %h2 this is dev stats:
 
@@ -9,17 +9,20 @@
   = t :points
   %p
     .data
-      = @developer.points_accepted
+      #points
+        = @developer.points_accepted
   = t :last_question
   %p
     .data
-      = @developer.time_since_question
-      hours
+      #last-question
+        = @developer.time_since_question
+        hours
   = t :last_broke_production
   %p
     .data
-      = @developer.time_since_broke_production
-      days
+      #broke-production
+        = @developer.time_since_broke_production
+        days
 
   = link_to 'edit', edit_developer_path(@developer)
 

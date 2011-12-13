@@ -7,3 +7,35 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+function timerThing() {
+  swapThing();
+  setTimeout('timerThing()', 50000);
+}
+
+function swapThing() {
+  if (window.location.pathname == '/')
+    { var ls = 'developers' }
+  else
+    { var locationArray = window.location.pathname.split('/')
+      var ls = locationArray[locationArray.length - 1]
+    }
+  jQuery.getJSON((ls + '.json'), {}, doStuff)
+}
+
+function doStuff(data) {
+  if (data[0]) {
+    jQuery.each(data, function() {$('#developer_' + this.id).find("#points").html(this.points_accepted)});
+    jQuery.each(data, function() {$('#developer_' + this.id).find("#last-question").html(this.time_since_question + ' hours')});
+    jQuery.each(data, function() {$('#developer_' + this.id).find("#broke-production").html(this.time_since_broke_production)});
+    }
+  else {
+    $('#developer_' + data.id).find("#points").html(data.points_accepted);
+    $('#developer_' + data.id).find("#last-question").html(data.time_since_question + ' hours');
+    $('#developer_' + data.id).find("#broke-production").html(data.time_since_broke_production);
+  }
+}
+
+jQuery(document).ready(function(){
+  timerThing();
+});

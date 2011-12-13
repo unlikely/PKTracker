@@ -9,4 +9,8 @@ class Developer < ActiveRecord::Base
   def time_since_broke_production(now=Time.zone.now)
     ((now - last_broke_production)/1.day).floor
   end
+
+  def as_json(options={})
+    super(:methods => [:time_since_question, :time_since_broke_production])
+  end
 end

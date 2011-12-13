@@ -3,6 +3,7 @@ class DevelopersController < ApplicationController
 
   def index
     @developer = Developer.all
+    respond_with @developer
   end
 
   def new

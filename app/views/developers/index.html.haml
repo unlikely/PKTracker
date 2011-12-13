@@ -3,7 +3,7 @@
     = link_to 'MAKE NEW OF DEVELOPER', new_developer_path
 
 - @developer.each do |x|
-  .developer-box
+  .developer-box[x]
     = t :name
     %p
       .data
@@ -11,17 +11,20 @@
     = t :points
     %p
       .data
-        = x.points_accepted
+        #points
+          = x.points_accepted
     = t :last_question
     %p
       .data
-        = x.time_since_question
-        hours
+        #last-question
+          = x.time_since_question
+          hours
     = t :last_broke_production
     %p
       .data
-        = x.time_since_broke_production
-        days
+        #broke-production
+          = x.time_since_broke_production
+          days
     %p
       = link_to 'edit', edit_developer_path(x)
       = form_for x, html: {method: :delete, clas: 'delete'} do |f|
