@@ -1,7 +1,7 @@
 #
 # Flipstone deployment recipes
 #
-require "flipstone-deployment/capistrano"
+require "flipstone-deployment/capistrano/rails"
 
 set :noalert_events, []
 
