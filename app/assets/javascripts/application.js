@@ -21,21 +21,31 @@ function swapThing() {
       var ls = locationArray[locationArray.length - 1]
     }
   jQuery.getJSON((ls + '.json'), {}, doStuff)
+  .error(function() {$('.error-lightbox').removeClass('hidden')})
+  .success(function() {$('.error-lightbox').addClass('hidden')})
+  .error(function(jqXHR, textStatus, errorThrown) {
+        $('.error-code').html('CODE OF ERROR OF PROBLEM IS ' + jqXHR.status)
+    })
 }
 
 function doStuff(data) {
+  $('.developer-box').addClass('notupdated')
   if (data[0]) {
     jQuery.each(data, function() {$('#developer_' + this.id).find("#points").html(this.points_accepted)});
     jQuery.each(data, function() {$('#developer_' + this.id).find("#last-question").html(this.time_since_question + ' hours')});
     jQuery.each(data, function() {$('#developer_' + this.id).find("#broke-production").html(this.time_since_broke_production)});
+    jQuery.each(data, function() {$('#developer_' + this.id).removeClass('notupdated')});
     }
   else {
     $('#developer_' + data.id).find("#points").html(data.points_accepted);
     $('#developer_' + data.id).find("#last-question").html(data.time_since_question + ' hours');
     $('#developer_' + data.id).find("#broke-production").html(data.time_since_broke_production);
+    $('#developer_' + data.id).removeClass('notupdated');
   }
+  $('.update-time').html('LAST UPDATED AT: ' + Date())
 }
 
 jQuery(document).ready(function(){
-  timerThing();
+  if ($('.updateable')[0]) {timerThing();}
+  else {return}
 });

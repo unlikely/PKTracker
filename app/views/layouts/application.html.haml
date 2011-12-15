@@ -10,7 +10,15 @@
     = csrf_meta_tags
 
   %body
-    %h1
+    %h2
       IS DEVELOPER TRACKER THING!!!!!@@@@
+    .error-lightbox.hidden
+      %h1
+        PROBLEM.
+        %p
+          (if this doesn't go away at the next refresh, something is probably wrong.)
+        .error-code
+          CODE OF ERROR OF PROBLEM WOULD GO HERE
+
     .workspace
       = yield

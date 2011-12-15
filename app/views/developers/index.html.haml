@@ -1,6 +1,11 @@
+.updateable
 %p
   .new-dev-offer
-    = link_to 'MAKE NEW OF DEVELOPER', new_developer_path
+    = link_to 'MAKE NEW OF DEVELOPER (click here)', new_developer_path
+
+  .update-time
+    LAST UPDATED AT:
+    = Time.zone.now
 
 - @developer.each do |x|
   .developer-box[x]

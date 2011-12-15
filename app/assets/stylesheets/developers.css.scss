@@ -45,11 +45,15 @@
 }
 
 .new-dev-offer {
+  text-align: center;
+  display: inline-block;
   border-width: 2px;
   border-style: solid;
   border-color: #222;
-  width: 250px;
+  width: 305px;
   padding: 18px;
+  margin: 8px auto;
+  margin-left: 7px;
   -moz-border-radius: 20px;
   border-radius: 20px;
   background-color: #aa4;
@@ -103,4 +107,42 @@ input {
   border-width: 2px;
   border-style: solid;
   border-color: #222;
+}
+
+.notupdated {
+  background-color: #d33;
+}
+
+.update-time {
+  display: inline-block;
+  text-align: center;
+  border-width: 2px;
+  border-style: solid;
+  border-color: #222;
+  width: 485px;
+  padding: 18px;
+  margin: 8px auto;
+  margin-left: 37px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+  background-color: #d7b;
+}
+
+.hidden {
+  display: none;
+}
+
+.error-lightbox {
+  position: absolute;
+  top: 200px;
+  left: 250px;
+  border: 2px solid #000;
+  color: #222;
+  min-height: 200px;
+  padding: 50px;
+  width: 480px;
+  margin: 30px auto;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+  background: #d22;
 }
