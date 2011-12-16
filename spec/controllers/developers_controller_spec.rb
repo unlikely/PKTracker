@@ -67,46 +67,52 @@ describe DevelopersController do
 
   describe 'asked_question' do
     it 'works' do
+      @request.env['HTTP_REFERER'] = 'http://pktracker'
       ev = Factory :developer, last_question: '2011-12-07 15:19:00'
       get :asked_question, id: ev.to_param
       ev.reload
       ev.last_question.should_not == Time.parse('2011-12-07 15:19:00')
     end
 
-    it 'redirects to show' do
+    it 'redirects to referer' do
+      @request.env['HTTP_REFERER'] = 'http://pktracker'
       ev = Factory :developer, last_question: '2011-12-07 15:19:00'
       get :asked_question, id: ev.to_param
-      response.should redirect_to developer_path(ev.id)
+      response.should redirect_to 'http://pktracker'
     end
   end
 
   describe 'broke_production' do
     it 'works' do
+      @request.env['HTTP_REFERER'] = 'http://pktracker'
       ev = Factory :developer, last_broke_production: '2011-12-07 15:19:00'
       get :broke_production, id: ev.to_param
       ev.reload
       ev.last_broke_production.should_not == Time.parse('2011-12-07 15:19:00')
     end
 
-    it 'redirects to show' do
+    it 'redirects to referer' do
+      @request.env['HTTP_REFERER'] = 'http://pktracker'
       ev = Factory :developer, last_broke_production: '2011-12-07 15:19:00'
       get :broke_production, id: ev.to_param
-      response.should redirect_to developer_path(ev.id)
+      response.should redirect_to 'http://pktracker'
     end
   end
 
   describe 'add_points' do
     it 'works' do
+      @request.env['HTTP_REFERER'] = 'http://pktracker'
       ev = Factory :developer, points_accepted: 3
       get :add_points, id: ev.to_param, points: 2
       ev.reload
       ev.points_accepted.should == 5
     end
 
-    it 'redirects to show' do
+    it 'redirects to referer' do
+      @request.env['HTTP_REFERER'] = 'http://pktracker'
       ev = Factory :developer, points_accepted: 3
       get :add_points, id: ev.to_param, points: 2
-      response.should redirect_to developer_path(ev.id)
+      response.should redirect_to 'http://pktracker'
     end
   end
 end
