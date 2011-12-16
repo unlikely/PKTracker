@@ -15,9 +15,9 @@ Pktracker::Application.routes.draw do
 
   resources :developers do
     member do
-      get 'asked_question'
-      get 'broke_production'
-      get 'add_points'
+      post 'asked_question'
+      post 'broke_production'
+      post 'add_points'
     end
   end
 
