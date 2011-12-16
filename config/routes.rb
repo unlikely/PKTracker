@@ -13,7 +13,14 @@ Pktracker::Application.routes.draw do
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
 
-  resources :developers
+  resources :developers do
+    member do
+      get 'asked_question'
+      get 'broke_production'
+      get 'add_points'
+    end
+  end
+
   root :to => 'developers#index'
 
   # You can have the root of your site routed with "root"

@@ -24,6 +24,27 @@ class DevelopersController < ApplicationController
     respond_with @developer
   end
 
+  def asked_question
+    @developer = Developer.find params[:id]
+    @developer.last_question = Time.zone.now
+    @developer.save
+    redirect_to developer_path(@developer)
+  end
+
+  def broke_production
+    @developer = Developer.find params[:id]
+    @developer.last_broke_production = Time.zone.now
+    @developer.save
+    redirect_to developer_path(@developer)
+  end
+
+  def add_points
+    @developer = Developer.find params[:id]
+    @developer.points_accepted += params[:points].to_i
+    @developer.save
+    redirect_to developer_path(@developer)
+  end
+
   def edit
     @developer = Developer.find params[:id]
   end

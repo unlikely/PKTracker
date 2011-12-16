@@ -30,7 +30,8 @@
         #broke-production
           = x.time_since_broke_production
           days
+
     %p
       = link_to 'edit', edit_developer_path(x)
-      = form_for x, html: {method: :delete, clas: 'delete'} do |f|
+      = form_for x, html: {method: :delete, class: 'delete'} do |f|
         = submit_tag "delete unnecessary developer", confirm: "YUO KNOW WHAT YOU DOING MAEK YUOR TIME"

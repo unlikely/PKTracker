@@ -17,18 +17,25 @@
     .data
       #points
         = @developer.points_accepted
+    = form_tag add_points_developer_path, method: :get do |f|
+      = text_field_tag :points, '', size: 2
+      = submit_tag
   = t :last_question
   %p
     .data
       #last-question
         = @developer.time_since_question
         hours
+    = link_to 'just asked question', asked_question_developer_path
+
+
   = t :last_broke_production
   %p
     .data
       #broke-production
         = @developer.time_since_broke_production
         days
+    = link_to 'just broke production', broke_production_developer_path
 
   = link_to 'edit', edit_developer_path(@developer)
 
