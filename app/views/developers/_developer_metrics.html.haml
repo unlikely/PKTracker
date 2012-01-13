@@ -1,37 +1,37 @@
 .developer-box[developer]
-  = t :name
-  %p
-    .data
-      = link_to developer.name, developer_path(developer)
-  = t :points
-  %p
-    .data
-      #points
-        = developer.points_accepted
-    = form_tag add_points_developer_path(developer) do |f|
-      = text_field_tag :points, '', size: 2
-      = submit_tag 'ADD OF POINTS!'
+  %h2= link_to developer.name, developer_path(developer)
+  = link_to t('ux.edit_developer'), edit_developer_path(developer)
 
-  = t :last_question
-  %p
+  .developer-metric
     .data
-      #last-question
+      #points.metric
+        = developer.points_accepted
+      = t :points
+
+    = form_tag add_points_developer_path(developer) do |f|
+      = text_field_tag :points, '', size: 2, class: 'input'
+      = submit_tag t('ux.add_points'), class: 'button'
+
+  .developer-metric
+    .data
+      #last-question.metric
         = developer.time_since_question
         hours
-    = form_for developer, method: :post, url: asked_question_developer_path(developer) do |f|
-      = submit_tag "just asked question"
+      = t :last_question
 
-  = t :last_broke_production
-  %p
+    = form_for developer, method: :post, url: asked_question_developer_path(developer) do |f|
+      = submit_tag t('ux.asked_question'), class: 'button'
+
+  .developer-metric
     .data
-      #broke-production
+      #broke-production.metric
         = developer.time_since_broke_production
         days
+      = t :last_broke_production
+
     = form_for developer, method: :post, url: broke_production_developer_path(developer) do |f|
-      = submit_tag "just broke production"
+      = submit_tag t('ux.just_broke_production'), class: 'button'
 
-
-  %p
-    = link_to 'edit', edit_developer_path(developer)
+  .actions
     = form_for developer, html: {method: :delete, class: 'delete'} do |f|
-      = submit_tag "delete unnecessary developer", confirm: "YUO KNOW WHAT YOU DOING MAEK YUOR TIME"
+      = submit_tag t('ux.delete_developer'), confirm: "YUO KNOW WHAT YOU DOING MAEK YUOR TIME"

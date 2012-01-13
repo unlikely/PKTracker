@@ -4,9 +4,9 @@
 en:
   hello: "Hello world"
   name: NAME HERE
-  points: POINTS HERE
-  last_question: "TIME SINCE LAST QUESTION"
-  last_broke_production: "TIME SINCE LAST BROKE PRODUCTION?"
+  points: "points this week"
+  last_question: "since last question"
+  last_broke_production: "since broke production"
 
   activerecord:
     attributes:
@@ -15,3 +15,9 @@ en:
         points: POINTS HERE
         last_question: "WHEN LAST QUESTION"
         last_broke_production: "WHEN LAST BROKE PRODUCTION?"
+  ux:
+    add_points: Add Points
+    asked_question: Just Asked Question
+    delete_developer: Delete
+    edit_developer: Edit
+    just_broke_production: Just Broke production
