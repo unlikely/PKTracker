@@ -8,6 +8,10 @@
 // #errorExplanation p – Style for the paragraph that holds the message that appears right below the header of the div element.
 // #errorExplanation ul li – Style for the list items with individual error messages.
 
+.shared-header {
+  float: left;
+}
+
 .field_with_errors {
   display: inline;
   padding: 8px;
@@ -46,23 +50,10 @@
 }
 
 .new-dev-offer {
-  text-align: center;
-  display: inline-block;
-  border-width: 2px;
-  border-style: solid;
-  border-color: #222;
-  width: 305px;
-  padding: 18px;
-  margin: 8px auto;
-  margin-left: 7px;
-  -moz-border-radius: 20px;
-  border-radius: 20px;
-  background-color: #aa4;
 }
 
 .new-dev-offer a {
   text-decoration: none;
-  color: #000;
 }
 
 .developer-box a {
@@ -115,18 +106,7 @@ input {
 }
 
 .update-time {
-  display: inline-block;
-  text-align: center;
-  border-width: 2px;
-  border-style: solid;
-  border-color: #222;
-  width: 485px;
-  padding: 18px;
-  margin: 8px auto;
-  margin-left: 37px;
-  -moz-border-radius: 20px;
-  border-radius: 20px;
-  background-color: #d7b;
+  float: right;
 }
 
 .hidden {

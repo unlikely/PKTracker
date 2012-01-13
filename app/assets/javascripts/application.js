@@ -42,7 +42,7 @@ function doStuff(data) {
     $('#developer_' + data.id).find("#broke-production").html(data.time_since_broke_production + ' days');
     $('#developer_' + data.id).removeClass('notupdated');
   }
-  $('.update-time').html('LAST UPDATED AT: ' + Date())
+  $('.update-time').html('' + Date())
 }
 
 jQuery(document).ready(function(){

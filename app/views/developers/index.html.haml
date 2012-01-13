@@ -1,47 +1,10 @@
+.update-time
+  = Time.zone.now.strftime('%h %m')
+
+.metrics
+  - @developer.each do |dev|
+    = render "developer_metrics", developer: dev
+
 .updateable
-%p
   .new-dev-offer
-    = link_to 'MAKE NEW OF DEVELOPER (click here)', new_developer_path
-
-  .update-time
-    LAST UPDATED AT:
-    = Time.zone.now
-
-- @developer.each do |x|
-  .developer-box[x]
-    = t :name
-    %p
-      .data
-        = link_to x.name, developer_path(x)
-    = t :points
-    %p
-      .data
-        #points
-          = x.points_accepted
-      = form_tag add_points_developer_path(x) do |f|
-        = text_field_tag :points, '', size: 2
-        = submit_tag 'ADD OF POINTS!'
-
-    = t :last_question
-    %p
-      .data
-        #last-question
-          = x.time_since_question
-          hours
-      = form_for x, method: :post, url: asked_question_developer_path(x) do |f|
-        = submit_tag "just asked question"
-
-    = t :last_broke_production
-    %p
-      .data
-        #broke-production
-          = x.time_since_broke_production
-          days
-      = form_for x, method: :post, url: broke_production_developer_path(x) do |f|
-        = submit_tag "just broke production"
-
-
-    %p
-      = link_to 'edit', edit_developer_path(x)
-      = form_for x, html: {method: :delete, class: 'delete'} do |f|
-        = submit_tag "delete unnecessary developer", confirm: "YUO KNOW WHAT YOU DOING MAEK YUOR TIME"
+    = link_to 'Add Developer', new_developer_path
