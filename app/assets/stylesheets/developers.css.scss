@@ -62,7 +62,7 @@
 }
 
 .developer-box {
-  background-color: #dff;
+  background-color: #fff;
   display: inline-block;
   padding: 4px;
   margin: 8px;
@@ -92,6 +92,22 @@
   border: gray solid 1px;
 }
 
+.developer-box .developer-metric.fail {
+  background-color: #fdd;
+}
+
+.developer-box .developer-metric.weak {
+  background-color: #fc8;
+}
+
+.developer-box .developer-metric.nominal {
+  background-color: #ffd;
+}
+
+.developer-box .developer-metric.great {
+  background-color: #dfd;
+}
+
 .button {
   font-size: 14px;
   text-decoration: none;
@@ -105,6 +121,19 @@
   border-width: 2px;
   border-style: solid;
   border-color: #222;
+}
+
+.fail .button {
+  background-color: #d99;
+}
+.weak .button {
+  background-color: #fa6;
+}
+.nominal .button {
+  background-color: #eea;
+}
+.great .button {
+  background-color: #9d9;
 }
 
 .input {

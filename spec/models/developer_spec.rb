@@ -18,6 +18,41 @@ describe Developer do
     end
   end
 
+  describe "time_since_question_score" do
+    let (:dev) {Factory.build :developer}
+    it "detects Great" do
+      dev.stub(:time_since_question).and_return(0)
+      dev.time_since_question_score.should == Score::Great
+
+      dev.stub(:time_since_question).and_return(4.0)
+      dev.time_since_question_score.should == Score::Great
+    end
+    
+    it "detects Nominal" do
+      dev.stub(:time_since_question).and_return(4.1)
+      dev.time_since_question_score.should == Score::Nominal
+
+      dev.stub(:time_since_question).and_return(8.0)
+      dev.time_since_question_score.should == Score::Nominal
+    end
+    
+    it "detects Weak" do
+      dev.stub(:time_since_question).and_return(8.1)
+      dev.time_since_question_score.should == Score::Weak
+
+      dev.stub(:time_since_question).and_return(15.9)
+      dev.time_since_question_score.should == Score::Weak
+    end
+
+    it "detects Fail" do
+      dev.stub(:time_since_question).and_return(16.0)
+      dev.time_since_question_score.should == Score::Fail
+
+      dev.stub(:time_since_question).and_return(1000.0)
+      dev.time_since_question_score.should == Score::Fail
+    end
+  end
+
   describe 'time_since_broke_production' do
     it 'works' do
       ev = Factory :developer, name: 'fred', last_broke_production: '2011-12-02 12:19:00'

@@ -28,7 +28,7 @@ gem 'jquery-rails'
 gem 'unicorn'
 
 # Deploy with Capistrano
-gem 'capistrano', '~> 2.5'
+gem 'capistrano', '~> 2.9'
 gem 'flipstone-deployment', git: 'git://github.com/flipstone/flipstone-deployment.git', branch: 'ccc7a75'
 
 # To use debugger

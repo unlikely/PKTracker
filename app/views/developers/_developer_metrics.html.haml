@@ -12,7 +12,7 @@
       = text_field_tag :points, '', size: 2, class: 'input'
       = submit_tag t('ux.add_points'), class: 'button'
 
-  .developer-metric
+  .developer-metric{:class => developer.time_since_question_score}
     .data
       #last-question.metric
         = developer.time_since_question
