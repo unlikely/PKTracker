@@ -32,13 +32,13 @@ function doStuff(data) {
   $('.developer-box').addClass('notupdated')
   if (data[0]) {
     jQuery.each(data, function() {$('#developer_' + this.id).find("#points").html(this.points_accepted + ' pts')});
-    jQuery.each(data, function() {$('#developer_' + this.id).find("#last-question").html(this.time_since_question + ' hours')});
+    jQuery.each(data, function() {$('#developer_' + this.id).find("#last-question").html(this.time_since_question + ' hrs')});
     jQuery.each(data, function() {$('#developer_' + this.id).find("#broke-production").html(this.time_since_broke_production + ' days')});
     jQuery.each(data, function() {$('#developer_' + this.id).removeClass('notupdated')});
     }
   else {
     $('#developer_' + data.id).find("#points").html(data.points_accepted + ' pts');
-    $('#developer_' + data.id).find("#last-question").html(data.time_since_question + ' hours');
+    $('#developer_' + data.id).find("#last-question").html(data.time_since_question + ' hrs');
     $('#developer_' + data.id).find("#broke-production").html(data.time_since_broke_production + ' days');
     $('#developer_' + data.id).removeClass('notupdated');
   }
