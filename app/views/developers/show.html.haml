@@ -1,6 +1,8 @@
 .update-time
   = Time.zone.now
 
-= render "developer_metrics", developer: @developer
+.metrics
+  = render "developer_metrics", developer: @developer
 
-= link_to 'BACK OF INDEX!!', developers_path
+.linked-actions
+  = link_to 'Return to Index', developers_path
