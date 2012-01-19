@@ -1,17 +1,17 @@
 $fail-background: #d99;
 $weak-background: #fd9;
-$nominal-background: #ffd;
-$great-background: #dfd;
+$nominal-background: #dfd;
+$win-background: #ada;
 
 $fail-accent: #fdd;
 $weak-accent: #fc9;
-$nominal-accent: #eeb;
-$great-accent: #9d9;
+$nominal-accent: #cec;
+$win-accent: #dfd;
 
-$fail-type: #a66;
+$fail-type: white;
 $weak-type: #d93;
-$nominal-type: #bb9;
-$great-type: #696;
+$nominal-type: #696;
+$win-type: white;
 
 .shared-header {
   float: left;
@@ -115,8 +115,8 @@ $great-type: #696;
   background-color: $nominal-background;
 }
 
-.developer-box .developer-metric.great {
-  background-color: $great-background;
+.developer-box .developer-metric.win {
+  background-color: $win-background;
 }
 
 .button {
@@ -143,8 +143,8 @@ $great-type: #696;
 .nominal .button {
   background-color: $nominal-accent;
 }
-.great .button {
-  background-color: $great-accent;
+.win .button {
+  background-color: $win-accent;
 }
 
 .score-description {
@@ -164,8 +164,8 @@ $great-type: #696;
   color: $nominal-type;
 }
 
-.score-description.great {
-  color: $great-type;
+.score-description.win {
+  color: $win-type;
 }
 
 .input {

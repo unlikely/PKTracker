@@ -1,5 +1,5 @@
 module Score
-  Great = 'great'
+  Win = 'win'
   Nominal = 'nominal'
   Weak = 'weak'
   Fail = 'fail'

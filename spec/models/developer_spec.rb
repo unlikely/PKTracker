@@ -20,12 +20,12 @@ describe Developer do
 
   describe "time_since_question_score" do
     let (:dev) {Factory.build :developer}
-    it "detects Great" do
+    it "detects win" do
       dev.stub(:time_since_question).and_return(0)
-      dev.time_since_question_score.should == Score::Great
+      dev.time_since_question_score.should == Score::Win
 
       dev.stub(:time_since_question).and_return(6.0)
-      dev.time_since_question_score.should == Score::Great
+      dev.time_since_question_score.should == Score::Win
     end
     
     it "detects Nominal" do
@@ -55,12 +55,12 @@ describe Developer do
 
   describe "points_accepted" do
     let (:dev) {Factory.build :developer}
-    it "detects Great" do
+    it "detects win" do
       dev.points_accepted = 5.00
-      dev.points_accepted_score.should == Score::Great
+      dev.points_accepted_score.should == Score::Win
 
-      dev.points_accepted = 50.0
-      dev.points_accepted_score.should == Score::Great
+      dev.points_accepted = 20.0
+      dev.points_accepted_score.should == Score::Win
     end
     
     it "detects Nominal" do
@@ -80,7 +80,7 @@ describe Developer do
     end
 
     it "detects Fail" do
-      dev.points_accepted = 0
+      dev.points_accepted = -20
       dev.points_accepted_score.should == Score::Fail
 
       dev.points_accepted = 0.99
@@ -106,12 +106,12 @@ describe Developer do
   describe "time_since_broke_production_score" do
     let (:dev) {Factory.build :developer}
 
-    it "detects Great" do
+    it "detects win" do
       dev.stub(:time_since_broke_production).and_return(20.0)
-      dev.time_since_broke_production_score.should == Score::Great
+      dev.time_since_broke_production_score.should == Score::Win
 
       dev.stub(:time_since_broke_production).and_return(1000.0)
-      dev.time_since_broke_production_score.should == Score::Great
+      dev.time_since_broke_production_score.should == Score::Win
     end
     
     it "detects Nominal" do
