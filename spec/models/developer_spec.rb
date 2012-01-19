@@ -138,11 +138,16 @@ describe Developer do
       dev.time_since_broke_production_score.should == Score::Fail
     end
   end
+
   describe 'converted to JSON' do
     it 'includes the desired attributes when converted to JSON' do
-      ev = Factory :developer
-      ev.to_json.should match /time_since_question/
-      ev.to_json.should match /time_since_broke_production/
+      dev = Factory :developer
+      dev.to_json.should match /time_since_question/
+      dev.to_json.should match /time_since_broke_production/
+      dev.to_json.should match /time_since_broke_production_score/
+      dev.to_json.should match /time_since_question_score/
+      dev.to_json.should match /points_accepted_score/
     end
   end
+  
 end

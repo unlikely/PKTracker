@@ -152,19 +152,19 @@ $win-type: white;
   font-size: 80%;
 }
 
-.score-description.fail {
+.fail .score-description {
   color: $fail-type;
 }
 
-.score-description.weak {
+.weak .score-description {
   color: $weak-type;
 }
 
-.score-description.nominal {
+.nominal .score-description {
   color: $nominal-type;
 }
 
-.score-description.win {
+.win .score-description {
   color: $win-type;
 }
 

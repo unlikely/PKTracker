@@ -1,11 +1,11 @@
-.developer-box[developer]
+.updateable.developer-box[developer]
   %h2= link_to developer.name, developer_path(developer)
   = link_to t('ux.edit_developer'), edit_developer_path(developer)
 
-  .developer-metric{:class => developer.points_accepted_score}
+  #points.developer-metric{:class => developer.points_accepted_score}
     = score_label developer.points_accepted_score
     .data
-      #points.metric
+      .metric
         = developer.points_accepted
         pts
       = t :points
@@ -14,10 +14,10 @@
       = text_field_tag :points, '', size: 2, class: 'input'
       = submit_tag t('ux.add_points'), class: 'button'
 
-  .developer-metric{:class => developer.time_since_question_score}
+  #last-question.developer-metric{:class => developer.time_since_question_score}
     = score_label developer.time_since_question_score
     .data
-      #last-question.metric
+      .metric
         = developer.time_since_question
         hrs
       = t :last_question
@@ -25,10 +25,10 @@
     = form_for developer, method: :post, url: asked_question_developer_path(developer) do |f|
       = submit_tag t('ux.asked_question'), class: 'button'
 
-  .developer-metric{:class => developer.time_since_broke_production_score}
+  #broke-production.developer-metric{:class => developer.time_since_broke_production_score}
     = score_label developer.time_since_broke_production_score
     .data
-      #broke-production.metric
+      .metric
         = developer.time_since_broke_production
         days
       = t :last_broke_production

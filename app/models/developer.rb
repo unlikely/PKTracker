@@ -29,7 +29,8 @@ class Developer < ActiveRecord::Base
   end
 
   def points_accepted_score
-    case (points_accepted * 100.0).to_i
+    points = points_accepted || 0
+    case (points * 100.0).to_i
       when (500..2000) then Score::Win
       when (100..299) then Score::Weak
       when (300..499) then Score::Nominal
@@ -38,7 +39,13 @@ class Developer < ActiveRecord::Base
   end
 
   def as_json(options={})
-    super(:methods => [:time_since_question, :time_since_broke_production])
+    super(:methods => [
+      :time_since_question, 
+      :time_since_broke_production,
+      :time_since_question_score,
+      :points_accepted_score,
+      :time_since_broke_production_score
+    ])
   end
 
 end

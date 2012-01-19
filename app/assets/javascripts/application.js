@@ -10,7 +10,7 @@
 
 function timerThing() {
   swapThing();
-  setTimeout('timerThing()', 50000);
+  setTimeout('timerThing()', 5000);
 }
 
 function swapThing() {
@@ -31,18 +31,47 @@ function swapThing() {
 function doStuff(data) {
   $('.developer-box').addClass('notupdated')
   if (data[0]) {
-    jQuery.each(data, function() {$('#developer_' + this.id).find("#points").html(this.points_accepted + ' pts')});
-    jQuery.each(data, function() {$('#developer_' + this.id).find("#last-question").html(this.time_since_question + ' hrs')});
-    jQuery.each(data, function() {$('#developer_' + this.id).find("#broke-production").html(this.time_since_broke_production + ' days')});
     jQuery.each(data, function() {$('#developer_' + this.id).removeClass('notupdated')});
-    }
-  else {
-    $('#developer_' + data.id).find("#points").html(data.points_accepted + ' pts');
-    $('#developer_' + data.id).find("#last-question").html(data.time_since_question + ' hrs');
-    $('#developer_' + data.id).find("#broke-production").html(data.time_since_broke_production + ' days');
-    $('#developer_' + data.id).removeClass('notupdated');
+
+    $.each(data, function() {
+      updateDeveloper(this);
+    });
   }
+  else {
+    updateDeveloper(data);
+  }
+
   $('.update-time').html('' + Date())
+}
+
+function updateDeveloper(developer) {
+  box=$('#developer_' + developer.id);
+
+  updateMetric(box.find("#points"), 
+               developer.points_accepted + ' pts', 
+               developer.points_accepted_score);
+
+  updateMetric(box.find("#broke-production"), 
+               developer.time_since_broke_production + ' days', 
+               developer.time_since_broke_production_score);
+
+  updateMetric(box.find("#last-question"), 
+               developer.time_since_question + ' hrs', 
+               developer.time_since_question_score);
+
+  box.removeClass('notupdated');
+}
+
+function updateMetric(target, value, score) {
+  target.find('.metric').html(value);
+  description=target.find('.score-description');
+  description.html(score.toUpperCase());
+  applyScoreClass(target, score);
+}
+
+function applyScoreClass(target, scoreclass) {
+  target.removeClass('win nominal weak fail');
+  target.addClass(scoreclass);
 }
 
 jQuery(document).ready(function(){
