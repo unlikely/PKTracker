@@ -1,3 +1,18 @@
+$fail-background: #fdd;
+$weak-background: #fc8;
+$nominal-background: #ffd;
+$great-background: #dfd;
+
+$fail-accent: #d99;
+$weak-accent: #fa6;
+$nominal-accent: #eea;
+$great-accent: #9d9;
+
+$fail-type: #a66;
+$weak-type: #d93;
+$nominal-type: #bb9;
+$great-type: #696;
+
 .shared-header {
   float: left;
 }
@@ -79,8 +94,8 @@
 
 .developer-box .developer-metric {
   clear: both;
-  background-color: white;
   overflow: auto;
+  background-color: white;
   margin: 8px;
   padding: 8px;  
   -moz-border-radius: 5px;
@@ -89,19 +104,19 @@
 }
 
 .developer-box .developer-metric.fail {
-  background-color: #fdd;
+  background-color: $fail-background;
 }
 
 .developer-box .developer-metric.weak {
-  background-color: #fc8;
+  background-color: $weak-background;
 }
 
 .developer-box .developer-metric.nominal {
-  background-color: #ffd;
+  background-color: $nominal-background;
 }
 
 .developer-box .developer-metric.great {
-  background-color: #dfd;
+  background-color: $great-background;
 }
 
 .button {
@@ -120,36 +135,37 @@
 }
 
 .fail .button {
-  background-color: #d99;
+  background-color: $fail-accent;
 }
 .weak .button {
-  background-color: #fa6;
+  background-color: $weak-accent;
 }
 .nominal .button {
-  background-color: #eea;
+  background-color: $nominal-accent;
 }
 .great .button {
-  background-color: #9d9;
+  background-color: $great-accent;
 }
 
 .score-description {
-  font-size: 90%;
+  float: right;
+  font-size: 80%;
 }
 
 .score-description.fail {
-  color: #d99;
+  color: $fail-type;
 }
 
 .score-description.weak {
-  color: #d93;
+  color: $weak-type;
 }
 
 .score-description.nominal {
-  color: #aa9;
+  color: $nominal-type;
 }
 
 .score-description.great {
-  color: #696;
+  color: $great-type;
 }
 
 .input {
@@ -192,9 +208,5 @@
 }
 
 form {
-  float: right;
-}
-
-.score-description {
   float: right;
 }

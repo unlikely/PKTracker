@@ -40,7 +40,7 @@ class DevelopersController < ApplicationController
 
   def add_points
     @developer = Developer.find params[:id]
-    @developer.points_accepted += params[:points].to_i
+    @developer.points_accepted += params[:points].to_f
     @developer.save
     redirect_to :back
   end

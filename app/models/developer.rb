@@ -29,7 +29,7 @@ class Developer < ActiveRecord::Base
   end
 
   def points_accepted_score
-    case (points_accepted * 100).to_i
+    case (points_accepted * 100.0).to_i
       when (0..99) then Score::Fail
       when (100..299) then Score::Weak
       when (300..499) then Score::Nominal
