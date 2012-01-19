@@ -38,4 +38,4 @@
 
   .actions
     = form_for developer, html: {method: :delete, class: 'delete'} do |f|
-      = submit_tag t('ux.delete_developer'), confirm: "YUO KNOW WHAT YOU DOING MAEK YUOR TIME"
+      = submit_tag t('ux.delete_developer'), confirm: "Really delete #{developer.name}?"
