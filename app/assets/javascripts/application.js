@@ -10,7 +10,7 @@
 
 function timerThing() {
   swapThing();
-  setTimeout('timerThing()', 5000);
+  setTimeout('timerThing()', 60000);
 }
 
 function swapThing() {
