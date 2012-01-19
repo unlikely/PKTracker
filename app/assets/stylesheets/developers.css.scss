@@ -39,7 +39,6 @@
 .data {
   margin: 0 auto;
   margin-bottom: 12px;
-  clear: both;
 }
 
 .data .metric {
@@ -136,6 +135,26 @@
   background-color: #9d9;
 }
 
+.score-description {
+  font-size: 90%;
+}
+
+.score-description.fail {
+  color: #d99;
+}
+
+.score-description.weak {
+  color: #d93;
+}
+
+.score-description.nominal {
+  color: #aa9;
+}
+
+.score-description.great {
+  color: #696;
+}
+
 .input {
   font-size: 14px;
   text-decoration: none;
@@ -176,5 +195,9 @@
 }
 
 form {
+  float: right;
+}
+
+.score-description {
   float: right;
 }
