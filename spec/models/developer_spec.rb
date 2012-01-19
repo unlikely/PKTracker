@@ -14,7 +14,7 @@ describe Developer do
     it 'works' do
       ev = Factory :developer, name: 'fred', last_question: '2011-12-07 15:19:00'
       compare = Time.parse('2011-12-07 18:39:00')
-      ev.time_since_question(compare).should == 3.333
+      ev.time_since_question(compare).should == 3.3
     end
   end
 
@@ -24,34 +24,70 @@ describe Developer do
       dev.stub(:time_since_question).and_return(0)
       dev.time_since_question_score.should == Score::Great
 
-      dev.stub(:time_since_question).and_return(4.0)
+      dev.stub(:time_since_question).and_return(6.0)
       dev.time_since_question_score.should == Score::Great
     end
     
     it "detects Nominal" do
-      dev.stub(:time_since_question).and_return(4.1)
+      dev.stub(:time_since_question).and_return(6.1)
       dev.time_since_question_score.should == Score::Nominal
 
-      dev.stub(:time_since_question).and_return(8.0)
+      dev.stub(:time_since_question).and_return(30.0)
       dev.time_since_question_score.should == Score::Nominal
     end
     
     it "detects Weak" do
-      dev.stub(:time_since_question).and_return(8.1)
+      dev.stub(:time_since_question).and_return(30.1)
       dev.time_since_question_score.should == Score::Weak
 
-      dev.stub(:time_since_question).and_return(15.9)
+      dev.stub(:time_since_question).and_return(60.9)
       dev.time_since_question_score.should == Score::Weak
     end
 
     it "detects Fail" do
-      dev.stub(:time_since_question).and_return(16.0)
+      dev.stub(:time_since_question).and_return(61.0)
       dev.time_since_question_score.should == Score::Fail
 
       dev.stub(:time_since_question).and_return(1000.0)
       dev.time_since_question_score.should == Score::Fail
     end
   end
+
+  describe "points_accepted" do
+    let (:dev) {Factory.build :developer}
+    it "detects Great" do
+      dev.points_accepted = 5.00
+      dev.points_accepted_score.should == Score::Great
+
+      dev.points_accepted = 50.0
+      dev.points_accepted_score.should == Score::Great
+    end
+    
+    it "detects Nominal" do
+      dev.points_accepted = 3.00
+      dev.points_accepted_score.should == Score::Nominal
+
+      dev.points_accepted = 4.99
+      dev.points_accepted_score.should == Score::Nominal
+    end
+    
+    it "detects Weak" do
+      dev.points_accepted = 1.00
+      dev.points_accepted_score.should == Score::Weak
+
+      dev.points_accepted = 2.99
+      dev.points_accepted_score.should == Score::Weak
+    end
+
+    it "detects Fail" do
+      dev.points_accepted = 0
+      dev.points_accepted_score.should == Score::Fail
+
+      dev.points_accepted = 0.99
+      dev.points_accepted_score.should == Score::Fail
+    end
+  end
+
 
   describe 'time_since_broke_production' do
     it 'works' do
@@ -67,6 +103,41 @@ describe Developer do
     end
   end
 
+  describe "time_since_broke_production_score" do
+    let (:dev) {Factory.build :developer}
+
+    it "detects Great" do
+      dev.stub(:time_since_broke_production).and_return(20.0)
+      dev.time_since_broke_production_score.should == Score::Great
+
+      dev.stub(:time_since_broke_production).and_return(1000.0)
+      dev.time_since_broke_production_score.should == Score::Great
+    end
+    
+    it "detects Nominal" do
+      dev.stub(:time_since_broke_production).and_return(19.9)
+      dev.time_since_broke_production_score.should == Score::Nominal
+
+      dev.stub(:time_since_broke_production).and_return(10.0)
+      dev.time_since_broke_production_score.should == Score::Nominal
+    end
+    
+    it "detects Weak" do
+      dev.stub(:time_since_broke_production).and_return(9.9)
+      dev.time_since_broke_production_score.should == Score::Weak
+
+      dev.stub(:time_since_broke_production).and_return(3.0)
+      dev.time_since_broke_production_score.should == Score::Weak
+    end
+
+    it "detects Fail" do
+      dev.stub(:time_since_broke_production).and_return(2.9)
+      dev.time_since_broke_production_score.should == Score::Fail
+
+      dev.stub(:time_since_broke_production).and_return(0.0)
+      dev.time_since_broke_production_score.should == Score::Fail
+    end
+  end
   describe 'converted to JSON' do
     it 'includes the desired attributes when converted to JSON' do
       ev = Factory :developer

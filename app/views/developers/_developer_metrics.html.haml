@@ -2,10 +2,11 @@
   %h2= link_to developer.name, developer_path(developer)
   = link_to t('ux.edit_developer'), edit_developer_path(developer)
 
-  .developer-metric
+  .developer-metric{:class => developer.points_accepted_score}
     .data
       #points.metric
         = developer.points_accepted
+        points
       = t :points
 
     = form_tag add_points_developer_path(developer) do |f|
@@ -22,7 +23,7 @@
     = form_for developer, method: :post, url: asked_question_developer_path(developer) do |f|
       = submit_tag t('ux.asked_question'), class: 'button'
 
-  .developer-metric
+  .developer-metric{:class => developer.time_since_broke_production_score}
     .data
       #broke-production.metric
         = developer.time_since_broke_production

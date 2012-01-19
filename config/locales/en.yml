@@ -4,7 +4,7 @@
 en:
   hello: "Hello world"
   name: NAME HERE
-  points: "points this week"
+  points: "accepted this week"
   last_question: "since last question"
   last_broke_production: "since broke production"
 
