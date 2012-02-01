@@ -5,10 +5,10 @@
   #points.developer-metric{:class => developer.points_accepted_score}
     = score_label developer.points_accepted_score
     .data
-      %span.metric
+      .metric
         = developer.points_accepted
         pts
-        = t :points
+      = t :points
 
     .data-form
       = form_tag add_points_developer_path(developer) do |f|
