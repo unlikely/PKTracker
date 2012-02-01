@@ -8,6 +8,13 @@ en:
   last_question: "since last question"
   last_broke_production: "since broke production"
 
+  score:
+    labels:
+      nominal: nominal
+      fail: fail
+      weak: weak
+      win: win
+
   activerecord:
     attributes:
       developer:
@@ -16,8 +23,8 @@ en:
         last_question: "WHEN LAST QUESTION"
         last_broke_production: "WHEN LAST BROKE PRODUCTION?"
   ux:
-    add_points: Add Points
-    asked_question: Just Asked Question
+    add_points: Add
+    asked_question: Just Asked
     delete_developer: Delete
     edit_developer: Edit
-    just_broke_production: Just Broke Production
+    just_broke_production: Just Broke

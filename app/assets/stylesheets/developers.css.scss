@@ -44,11 +44,13 @@ $win-type: white;
 .data {
   margin: 0 auto;
   margin-bottom: 12px;
+
 }
 
 .data .metric {
   font-size: 200%;
   font-weight: bold;
+  overflow: none;
 }
 
 .linked-actions {
@@ -101,6 +103,7 @@ $win-type: white;
   -moz-border-radius: 5px;
   border-radius: 5px;
   border: gray solid 1px;
+  position: relative;
 }
 
 .developer-box .developer-metric.fail {
@@ -148,8 +151,11 @@ $win-type: white;
 }
 
 .score-description {
-  float: right;
   font-size: 80%;
+  position: absolute;
+  right: 4px;
+  text-align: right;
+  top: 2px;
 }
 
 .fail .score-description {
@@ -205,6 +211,11 @@ $win-type: white;
   -moz-border-radius: 20px;
   border-radius: 20px;
   background: #d22;
+}
+
+.data-form {
+  clear: both;
+  display: block;
 }
 
 form {

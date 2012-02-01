@@ -5,14 +5,15 @@
   #points.developer-metric{:class => developer.points_accepted_score}
     = score_label developer.points_accepted_score
     .data
-      .metric
+      %span.metric
         = developer.points_accepted
         pts
-      = t :points
+        = t :points
 
-    = form_tag add_points_developer_path(developer) do |f|
-      = text_field_tag :points, '', size: 2, class: 'input'
-      = submit_tag t('ux.add_points'), class: 'button'
+    .data-form
+      = form_tag add_points_developer_path(developer) do |f|
+        = text_field_tag :points, '', size: 2, class: 'input'
+        = submit_tag t('ux.add_points'), class: 'button'
 
   #last-question.developer-metric{:class => developer.time_since_question_score}
     = score_label developer.time_since_question_score
@@ -22,8 +23,9 @@
         hrs
       = t :last_question
 
-    = form_for developer, method: :post, url: asked_question_developer_path(developer) do |f|
-      = submit_tag t('ux.asked_question'), class: 'button'
+    .data-form
+      = form_for developer, method: :post, url: asked_question_developer_path(developer) do |f|
+        = submit_tag t('ux.asked_question'), class: 'button'
 
   #broke-production.developer-metric{:class => developer.time_since_broke_production_score}
     = score_label developer.time_since_broke_production_score
@@ -33,8 +35,9 @@
         days
       = t :last_broke_production
 
-    = form_for developer, method: :post, url: broke_production_developer_path(developer) do |f|
-      = submit_tag t('ux.just_broke_production'), class: 'button'
+    .data-form
+      = form_for developer, method: :post, url: broke_production_developer_path(developer) do |f|
+        = submit_tag t('ux.just_broke_production'), class: 'button'
 
   .actions
     = form_for developer, html: {method: :delete, class: 'delete'} do |f|
