@@ -30,6 +30,7 @@ gem 'unicorn'
 # Deploy with Capistrano
 gem 'capistrano', '~> 2.9'
 gem 'flipstone-deployment', git: 'git://github.com/flipstone/flipstone-deployment.git', branch: 'ccc7a75'
+gem 'pivotal-tracker', git: 'https://github.com/tomazy/pivotal-tracker.git', branch: 'cab79b1'
 
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'

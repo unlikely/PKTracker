@@ -10,4 +10,6 @@ Pktracker::Application.routes.draw do
 
   root :to => 'developers#index'
 
+  post '/pivotal_activity' => 'pivotal_activity#activity'
+
 end

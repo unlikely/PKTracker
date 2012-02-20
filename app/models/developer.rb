@@ -2,6 +2,8 @@ class Developer < ActiveRecord::Base
   validates_presence_of :name
   validates_numericality_of :points_accepted, allow_blank: true
 
+  has_many :stories, foreign_key: :owner_id
+
   def time_since_question(now=Time.zone.now)
     ((now - last_question)/1.hour).round(1)
   end
