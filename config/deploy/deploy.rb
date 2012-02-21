@@ -27,7 +27,8 @@ task :production do
   set :nginx_cfg, {
     ht_user: 'trackthing',
     ht_passwd: 'trackme',
-    port: 80
+    port: 80,
+    ht_off: ['/pivotal_activity']
   }
   set_env
 end
