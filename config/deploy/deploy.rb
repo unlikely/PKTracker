@@ -72,3 +72,10 @@ set :rds_cfg, {
   :port => "3306"
 }
 
+namespace :secrets do
+  task :symlink do
+    run "ln -sf #{shared_path}/system/tracker_token #{current_path}/config/tracker_token"
+  end
+end
+
+after "deploy:symlink", "secrets:symlink"
