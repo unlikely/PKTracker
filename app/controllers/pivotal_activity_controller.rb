@@ -7,7 +7,7 @@ class PivotalActivityController < ApplicationController
 
        params[:activity][:stories].each do |story_info|
          Story.story_update params[:activity][:project_id],
-                            story_info[:story]
+                            story_info
        end
     end
 

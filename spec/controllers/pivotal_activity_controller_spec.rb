@@ -23,10 +23,9 @@ describe PivotalActivityController do
         project_id: "890890",
         event_type: "story_update",
         stories: [
-          { story:
-            { id: "123123",
-              accepted_at: "2012/02/20 21:21:46 UTC",
-              current_state: "accepted" } }
+          { id: "123123",
+            accepted_at: "2012/02/20 21:21:46 UTC",
+            current_state: "accepted" }
         ]
       }
 

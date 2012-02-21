@@ -1,0 +1,24 @@
+= form_for @developer do |f|
+  = f.error_messages
+  %p
+    = f.label :name
+    = f.text_field :name
+
+  %p
+    = f.label :tracker_name
+    = f.text_field :tracker_name
+
+  %p
+    = f.label :points
+    = f.text_field :points_accepted, size: 12
+
+  %p
+    = f.label :last_question
+    = f.datetime_select :last_question, ampm: true
+
+  %p
+    = f.label :last_broke_production
+    = f.date_select :last_broke_production
+
+  %p
+    = submit_tag "MAKE GO!!!"
