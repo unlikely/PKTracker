@@ -75,8 +75,8 @@ set :rds_cfg, {
 
 namespace :secrets do
   task :symlink do
-    run "ln -sf #{shared_path}/system/tracker_token #{current_path}/config/tracker_token"
+    run "ln -sf #{shared_path}/system/tracker_token #{release_path}/config/tracker_token"
   end
 end
 
-after "deploy:symlink", "secrets:symlink"
+before "deploy:assets:precompile", "secrets:symlink"
