@@ -6,9 +6,3 @@ require File.expand_path('../config/application', __FILE__)
 
 Pktracker::Application.load_tasks
 
-if Rails.env.test? || Rails.env.development?
-  Rspec::Core::RakeTask.new(:spec) do |t|
-     t.verbose = false
-     t.rspec_opts = "--color"
-  end
-end
