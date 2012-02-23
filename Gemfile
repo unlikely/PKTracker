@@ -51,5 +51,5 @@ group :test do
 end
 
 group :production do
-  gem 'mysql', '2.8.1'
+  gem 'mysql2', '0.3.11'
 end
