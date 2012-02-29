@@ -29,6 +29,10 @@ describe PivotalActivityController do
         ]
       }
 
+      STORY_UPDATE_QUEUE.should_not be_empty
+      StoryUpdateThread.process_update_queue non_block: true
+      STORY_UPDATE_QUEUE.should be_empty
+
       story = developer.reload.stories.find_by_tracker_id(123123)
       story.should_not be_nil
     end

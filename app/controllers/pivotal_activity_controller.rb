@@ -6,8 +6,10 @@ class PivotalActivityController < ApplicationController
        params[:activity][:stories]
 
        params[:activity][:stories].each do |story_info|
-         Story.story_update params[:activity][:project_id],
-                            story_info
+         STORY_UPDATE_QUEUE.push [
+           params[:activity][:project_id],
+           story_info
+         ]
        end
     end
 
