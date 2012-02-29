@@ -65,7 +65,7 @@ task :set_env do
   }
 
   # for nginx config
-  set :unicorn { port: unicorn_port }
+  set :unicorn, { port: unicorn_port }
 end
 
 set :rds_cfg, {
