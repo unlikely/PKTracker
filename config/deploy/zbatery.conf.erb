@@ -1,0 +1,32 @@
+##
+# Unicorn config
+##
+
+# What ports/sockets to listen on, and what options for them.
+listen <%= zbatery[:port] %>
+
+working_directory '<%= "#{current_path}" %>'
+
+# What the timeout for killing busy workers is, in seconds
+timeout <%= zbatery[:worker_timeout] %>
+
+# How many worker processes
+worker_processes <%= zbatery[:worker_processes] %>
+
+# Where to drop a pidfile
+pid '<%= zbatery_pidfile %>'
+
+# Where stderr gets logged
+stderr_path '<%= zbatery_stderr_path %>'
+
+# Where stdout gets logged
+stdout_path '<%= zbatery_stdout_path %>'
+
+Rainbows! do
+  use :FiberSpawn
+  worker_connections <%= zbatery[:worker_connections] %>
+end
+
+before_exec do |server|
+  ENV["BUNDLE_GEMFILE"] = "<%=current_path%>/Gemfile"
+end

@@ -57,11 +57,11 @@ task :set_env do
 
   default_run_options[:pty] = true
 
-  set :unicorn, {
+  set :zbatery, {
     port: unicorn_port,
-    worker_processes: 1,
+    worker_processes: 4,
+    worker_connections: 100,
     worker_timeout: 15, #in seconds
-    preload_app: false
   }
 
 end

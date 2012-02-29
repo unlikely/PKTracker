@@ -26,10 +26,11 @@ gem 'jquery-rails'
 
 # Use unicorn as the web server
 gem 'unicorn'
+gem 'zbatery'
 
 # Deploy with Capistrano
 gem 'capistrano', '~> 2.9'
-gem 'flipstone-deployment', git: 'git://github.com/flipstone/flipstone-deployment.git', branch: 'ae61d56'
+gem 'flipstone-deployment', git: 'git://github.com/flipstone/flipstone-deployment.git', branch: 'e49dcc1'
 gem 'pivotal-tracker', git: 'https://github.com/tomazy/pivotal-tracker.git', branch: 'cab79b1'
 
 # To use debugger
