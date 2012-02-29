@@ -64,6 +64,8 @@ task :set_env do
     worker_timeout: 15, #in seconds
   }
 
+  # for nginx config
+  set :unicorn { port: unicorn_port }
 end
 
 set :rds_cfg, {
