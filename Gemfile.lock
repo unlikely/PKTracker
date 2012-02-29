@@ -216,6 +216,5 @@ DEPENDENCIES
   therubyracer
   turn (= 0.8.2)
   uglifier (>= 1.0.3)
-  unicorn
   webrat
   zbatery
