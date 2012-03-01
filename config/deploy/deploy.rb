@@ -14,6 +14,7 @@ set :noalert_events, []
 set :instance, "localhost"
 set :branch, "master"
 set :deployment_safeword, "insanitysauce"
+set :appserver_name, :zbatery
 
 #
 # environment settings (by task)
@@ -23,7 +24,7 @@ task :production do
   sanity_check
   set :rails_env, "production"
   set :instance, "pktracker.flipstone.com"
-  set :unicorn_port, 15099
+  set :appserver_port, 15099
   set :nginx_cfg, {
     ht_user: 'trackthing',
     ht_passwd: 'trackme',
@@ -58,14 +59,12 @@ task :set_env do
   default_run_options[:pty] = true
 
   set :zbatery, {
-    port: unicorn_port,
+    port: appserver_port,
     worker_processes: 4,
     worker_connections: 100,
     worker_timeout: 15, #in seconds
   }
 
-  # for nginx config
-  set :unicorn, { port: unicorn_port }
 end
 
 set :rds_cfg, {
@@ -82,3 +81,4 @@ namespace :secrets do
 end
 
 before "deploy:assets:precompile", "secrets:symlink"
+
